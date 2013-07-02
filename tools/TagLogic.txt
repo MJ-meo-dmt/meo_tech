@@ -9,7 +9,7 @@ Parser Tags:
 - runSpeed
 - walkSpeed
 - turnSpeed
-- jumpheight
+- jumpheight (Not Used Atm)
 - isDynamic
 - script
 

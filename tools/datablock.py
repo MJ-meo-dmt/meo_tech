@@ -42,14 +42,16 @@ class TypeSamplerPanel(bpy.types.Panel):
             col.prop( scn, "datablock_model" )
             col.prop( scn, "datablock_height" )
             col.prop( scn, "datablock_radius" )
-            col.prop( scn, "datablock_moveSpeed" )
+            col.prop( scn, "datablock_runSpeed" )
+            col.prop( scn, "datablock_walkSpeed" )
+            col.prop( scn, "datablock_turnSpeed" )
             col.prop( scn, "datablock_isDynamic" )
             col.prop( scn, "datablock_attachScript" )
         
         
         ## CHECK LEVEL TYPE SELECTION ##
         if bpy.context.scene.dropDownProp == "levelType":
-            col.prop( scn, "dropDownLevelType" )
+            col.prop( scn, "dropDownLevelType" ) # Subtype
             col.prop( scn, "datablock_id" )
             col.prop( scn, "datablock_name" )
             col.prop( scn, "datablock_isDynamic" )
@@ -67,7 +69,7 @@ class TypeSamplerPanel(bpy.types.Panel):
         
         ## CHECK LIGHT TYPE SELECTION ##
         if bpy.context.scene.dropDownProp == "lightType":
-            col.prop( scn, "dropDownLight" )
+            col.prop( scn, "dropDownLight" ) # Subtype
             if bpy.context.scene.dropDownLight == "pointType":
                 col.prop( scn, "datablock_id" )
                 col.prop( scn, "datablock_name" )
@@ -125,7 +127,9 @@ class SampleOperator(bpy.types.Operator):
             bpy.ops.object.game_property_new(type='STRING', name="model")
             bpy.ops.object.game_property_new(type='FLOAT', name="height")
             bpy.ops.object.game_property_new(type='FLOAT', name="radius")
-            bpy.ops.object.game_property_new(type='FLOAT', name="speed")
+            bpy.ops.object.game_property_new(type='FLOAT', name="runSpeed")
+            bpy.ops.object.game_property_new(type='FLOAT', name="walkSpeed")
+            bpy.ops.object.game_property_new(type='FLOAT', name="turnSpeed")
             bpy.ops.object.game_property_new(type='BOOL', name="isDynamic")
             bpy.ops.object.game_property_new(type='STRING', name="script")
             
@@ -137,7 +141,9 @@ class SampleOperator(bpy.types.Operator):
             dict['model'].value = bpy.context.scene.datablock_model
             dict['height'].value = bpy.context.scene.datablock_height
             dict['radius'].value = bpy.context.scene.datablock_radius
-            dict['speed'].value = bpy.context.scene.datablock_moveSpeed
+            dict['runSpeed'].value = bpy.context.scene.datablock_runSpeed
+            dict['walkSpeed'].value = bpy.context.scene.datablock_walkSpeed
+            dict['turnSpeed'].value = bpy.context.scene.datablock_turnSpeed
             dict['isDynamic'].value = bpy.context.scene.datablock_isDynamic
             dict['script'].value = bpy.context.scene.datablock_attachScript
             
