@@ -1,0 +1,70 @@
+<CoordinateSystem> { Z-up } 
+<Material> Material {
+  <Scalar> diffr { 0.575120 }
+  <Scalar> diffg { 0.800000 }
+  <Scalar> diffb { 0.000000 }
+  <Scalar> specr { 0.500000 }
+  <Scalar> specg { 0.500000 }
+  <Scalar> specb { 0.500000 }
+  <Scalar> shininess { 12.5 }
+  <Scalar> emitr { 0.000000 }
+  <Scalar> emitg { 0.000000 }
+  <Scalar> emitb { 0.000000 }
+}
+
+  <Group> Point {
+    <Tag> light { light1 }
+    <Tag> subType { pointType }
+    <Tag> id { 0 }
+    <Tag> model { " " }
+    <Tag> isDynamic { False }
+    <Tag> script { " " }
+    <Tag> color { "1.0 0.0 0.0 1.0" }
+    <Transform> {
+      <Matrix4> {
+        2.034794 0.000000 0.000000 0.000000 
+        0.000000 2.034794 0.000000 0.000000 
+        0.000000 0.000000 2.034794 0.000000 
+        0.000000 0.000000 3.366505 1.000000 
+      }
+    }
+    
+  }
+  <Group> Plane {
+    <Tag> level { ground }
+    <Tag> id { 0 }
+    <Tag> subType { groundType }
+    <Tag> isDynamic { False }
+    <Tag> useBulletPlane { True }
+    <Tag> script { " " }
+    <Transform> {
+      <Matrix4> {
+        8.196430 0.000000 0.000000 0.000000 
+        0.000000 8.196430 0.000000 0.000000 
+        0.000000 0.000000 8.196430 0.000000 
+        0.000000 0.000000 0.000000 1.000000 
+      }
+    }
+    
+    <VertexPool> Plane {
+    
+      <Vertex> 0 {
+        -8.196430206298828 -8.196430206298828 0.0
+      }
+      <Vertex> 1 {
+        8.196430206298828 -8.196430206298828 0.0
+      }
+      <Vertex> 2 {
+        8.196430206298828 8.196430206298828 0.0
+      }
+      <Vertex> 3 {
+        -8.196430206298828 8.196430206298828 0.0
+      }}
+    
+    
+    <Polygon> {
+      <MRef> { Material }
+      <Normal> {0.000000 0.000000 1.000000}
+      <VertexRef> { 0 1 2 3 <Ref> { Plane }}
+    }
+  }

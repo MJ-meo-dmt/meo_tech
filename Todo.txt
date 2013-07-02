@@ -1,0 +1,33 @@
+## MEOTECH TAG LOGICPARSER ##
+
+__TODO__
+
+***New
+- add a "turn speed" float input in the blender tool
+- adjust the player strafe speed 
+- add the fps type camera and make the engine a little more open in means.. (note2self: dont hardcode anything. make it open for atleast 3 types of games. 1st/3rd/ rpgTop down)
+- Add a ground plane function in blender aswell.. under a new category level::ground, level::walls
+- add a sensors/trigger system aswell.
+
+
+
+## CURRENT TAGS ##
+[Player]
+[Level]
+[Object]
+[Info]
+
+sub tags(minor) for all objects as in things in the game.. player, boxes (and other crap), walls blabla
+- id (Dont worry about this too much.. its not being used. atm)
+- name
+- control
+- isDynamic
+- attachScript
+- model (this could be used as a external model file to be loaded in the place of this holder) esp player
+
+# Level Info types
+- name
+- gameType
+- skyBox
+- numOfAi (unsure)
+- enableAi (unsure)
