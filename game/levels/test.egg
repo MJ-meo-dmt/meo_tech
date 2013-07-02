@@ -15,6 +15,31 @@
   <Scalar> specb { 0.052538 }
   <Scalar> shininess { 12.5 }
 }
+<Group> Area {
+  <Transform> {
+    <Matrix4> {
+      1 0 0 0
+      0 1 0 0
+      0 0 1 0
+      -0.107922 0 3.1921 1
+    }
+  }
+  <Tag> color {
+    "0.2 0.2 0.2 1"
+  }
+  <Tag> id {
+    0
+  }
+  <Tag> light {
+    sun
+  }
+  <Tag> script {
+    " "
+  }
+  <Tag> subType {
+    ambientType
+  }
+}
 <Group> wall.017 {
   <Transform> {
     <Matrix4> {
@@ -1273,7 +1298,7 @@
     }
   }
   <Tag> color {
-    "1.0 0.0 1.0 1.0"
+    "1.0 1.0 1.0 1.0"
   }
   <Tag> id {
     0
@@ -1450,11 +1475,11 @@
       1 0 0 0
       0 1 0 0
       0 0 1 0
-      -9.88453 0 8.21031 1
+      -5.42934 3.06937 1.5565 1
     }
   }
   <Tag> color {
-    "1.0 1.0 1.0 1.0"
+    "0.0 1.0 0.0 1.0"
   }
   <Tag> id {
     0

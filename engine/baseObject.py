@@ -239,6 +239,7 @@ class BaseLight():
         # States
         self.position = _obj.getPos(_levelEgg)
         self.hpr = _obj.getHpr(_levelEgg)
+        self.h = _obj.getH(_levelEgg)
         
         # Run Checkers
         self.buildSubType()
@@ -255,7 +256,7 @@ class BaseLight():
             plnp = self.renderObjectsLight.attachNewNode(pointLight)
             plnp.setPos(self.position)
             self.lightNP = plnp
-            self.setLightSwitch(True)
+            #self.setLightSwitch(True)
             
         if self.subType == "directType":
             # make a directional light
@@ -263,9 +264,10 @@ class BaseLight():
             directLight = DirectionalLight(self.name)
             directLight.setColor(VBase4(c[0], c[1], c[2], c[3]))
             dlnp = self.renderObjectsLight.attachNewNode(directLight)
-            dlnp.setHpr(self.hpr) # no idea why its like that.. but it works
+            dlnp.setHpr(0, -60, 0) # no idea why its like that.. but it works
             self.lightNP = dlnp
             self.setLightSwitch(True)
+            print directLight.getDirection(), self.hpr
             
             
         if self.subType == "ambientType":
