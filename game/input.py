@@ -25,63 +25,35 @@
 ############################################################
 
 #----------------------------------------------------------------------#
+"""@ package Input
 
-"""@ package Game
-
-Start the Game.
+Keep all inputs here.
 """
 
-# System Imports
+# System imports
 import logging as log
 
-# Panda Engine Imports
+# Panda imports
+from direct.showbase.InputStateGlobal import inputState
 
-# MeoTech Imports
-from input import InputHandler
+# MeoTech imports
+
 
 #----------------------------------------------------------------------#
 
-# Game
-class Game():
-    """The Game handles the actual game and custom scripts.
+class InputHandler():
+    """InputHandler
     """
-    def __init__(self, _meotech):
+    def __init__(self, _game):
+        """InputHandler INIT"""
         
-        print "Game - init >>>"
+        # Game
+        self.game = _game
         
-        # Meotech
-        self.meotech = _meotech
-        
-        # Load Inputs
-        self.inputs = InputHandler(self)
-        
-        # Add GameLoop Task
-        taskMgr.add(self.gameLoop, "Game_loop")
-        
-        
-    def gameLoop(self, task):
-        
-        dt = globalClock.getDt()
-        # Add player movement
-        # Check this if its slow change it...
-        if self.meotech.engine.GameObject["player"].useBasicMovement:
-            self.meotech.engine.factory.basePhysics.useBasicPlayerMovement(dt)
-        # Add Player camera handler
-        
-        return task.cont
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
+        inputState.watchWithModifiers('forward', 'w')
+        inputState.watchWithModifiers('left', 'a')
+        inputState.watchWithModifiers('reverse', 's')
+        inputState.watchWithModifiers('right', 'd')
+        inputState.watchWithModifiers('turnLeft', 'q')
+        inputState.watchWithModifiers('turnRight', 'e')
         
