@@ -65,7 +65,7 @@ class Game():
         # Add player movement
         # Check this if its slow change it...
         if self.meotech.engine.GameObjects["player"]:
-            if self.meotech.engine.GameObjects["player"].useBasicPlayerMovement:
+            if self.meotech.engine.GameObjects["player"].useBasicMovement:
                 self.meotech.engine.factory.basePhysics.useBasicPlayerMovement(dt)
         # Add Player camera handler
         

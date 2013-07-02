@@ -73,7 +73,7 @@ class BasePlayer():
         self.runSpeed = float(_obj.getTag("runSpeed"))
         self.walkSpeed = float(_obj.getTag("walkSpeed"))
         self.turnSpeed = float(_obj.getTag("turnSpeed"))
-        self.jumpHeight = float(_obj.getTag("jumpHeight"))
+        #self.jumpHeight = float(_obj.getTag("jumpHeight"))
         self.isDynamic = _obj.getTag("isDynamic")
         self.script = _obj.getTag("script")
         
@@ -144,6 +144,7 @@ class BaseLevel():
         self.engine = _engine
         self.factory = self.engine.factory
         self.renderObjectsLevel = self.engine.RenderObjects["level"]
+        self.levelEgg = _levelEgg
         
         # Object
         self.object = _obj
@@ -176,10 +177,10 @@ class BaseLevel():
         if self.subType == "wallType":
             """Build a wall"""
             
-            if "_col" in self.name:
+            if "col" in self.name:
                 """Build the collision body for this wall"""
                 self.bulletBody = self.factory.basePhysics.buildTriangleMesh(
-                            self.object, _levelEgg, 0, self.isDynamic)
+                            self.object, self.levelEgg, 0, self.isDynamic)
             
             else:
                 self.object.reparentTo(self.renderObjectsLevel)
@@ -195,9 +196,9 @@ class BaseLevel():
             
             else:
                 
-                if "_col" in self.name:
+                if "col" in self.name:
                     self.bulletBody = self.factory.basePhysics.buildTriangleMesh(
-                            self.object, _levelEgg, 0, self.isDynamic)
+                            self.object, self.levelEgg, 0, self.isDynamic)
                 
                 else:
                     self.object.reparentTo(self.renderObjectsLevel)

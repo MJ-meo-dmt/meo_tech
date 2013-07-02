@@ -88,15 +88,15 @@ class BasePhysics():
         speed = Vec3(0, 0, 0)
         omega = 0.0
         
-        if inputState.isSet('forward'): speed.setY(player.moveSpeed)
-        if inputState.isSet('reverse'): speed.setY(-player.moveSpeed)
-        if inputState.isSet('left'): speed.setX(-player.moveSpeed)
-        if inputState.isSet('right'): speed.setX(player.moveSpeed)
+        if inputState.isSet('forward'): speed.setY(player.runSpeed)
+        if inputState.isSet('reverse'): speed.setY(-player.runSpeed)
+        if inputState.isSet('left'): speed.setX(-player.runSpeed)
+        if inputState.isSet('right'): speed.setX(player.runSpeed)
         if inputState.isSet('turnLeft'):  omega =  player.turnSpeed
         if inputState.isSet('turnRight'): omega = -player.turnSpeed
         
-        player.bulletBody.setAngularMovement(omega)
-        player.bulletBody.setLinearMovement(speed, True)
+        player.bulletBody.node().setAngularMovement(omega)
+        player.bulletBody.node().setLinearMovement(speed, True)
         
     def buildTriangleMesh(self, _obj, _levelEgg, _mass=0, _isDynamic=False):
         """Build a bullet TriangleMesh for wall objects"""
