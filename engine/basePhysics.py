@@ -95,11 +95,11 @@ class BasePhysics():
         if inputState.isSet('turnLeft'):  omega =  player.turnSpeed
         if inputState.isSet('turnRight'): omega = -player.turnSpeed
         
-        player.bulletBody.node().setAngularMovement(omega)
+        #player.bulletBody.node().setAngularMovement(omega)
         player.bulletBody.node().setLinearMovement(speed, True)
         
     def buildTriangleMesh(self, _obj, _levelEgg, _mass=0, _isDynamic=False):
-        """Build a bullet TriangleMesh for wall objects"""
+        """Build a bullet TriangleMesh for objects"""
         
         mesh = BulletTriangleMesh()
         node = _obj.node()
