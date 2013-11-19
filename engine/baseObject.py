@@ -122,6 +122,12 @@ class BasePlayer():
             # replace this style with more options to support 
             # point and click style movement aswell.
             pass
+            
+        # Check side scroller type camera
+        if self.control == "controlType3":
+            """Add a side scroller style camera"""
+            # Add a side scroller type camera
+            pass
     
     def setModel(self):
         """Attach the given model to the player"""
@@ -213,7 +219,7 @@ class BaseLight():
     """
     def __init__(self, _engine, _type, _obj, _levelEgg):
         """BaseLights Constructor"""
-        print "start build: ", _obj, " Type: ", _type
+        print "start building: ", _obj, " Type: ", _type
         
         # Engine
         self.engine = _engine

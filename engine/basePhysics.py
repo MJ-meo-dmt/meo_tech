@@ -55,6 +55,9 @@ class BasePhysics():
         
         # Engine
         self.engine = _engine
+        
+        # Player state stuff
+        self.crouching = False
     
     def buildGroundPlane(self):
         """Build a BulletPlane"""
@@ -80,6 +83,27 @@ class BasePhysics():
         self.engine.bulletWorld.attachCharacter(np.node())
         return np
         
+    def doPlayerJump(self, player):
+        """Allow the player to perform a jump"""
+        
+        # set jump height, speed
+        player.setMaxJumpHeight(5.0)
+        player.setJumpSpeed(8.0)
+        player.doJump()
+        
+    
+    def doPlayerCrouch(self, player):
+        """Allow the player to perform crouch"""
+        self.crouching = not self.crouching
+        
+        sz = self.crouching and 0.6 or 1.0
+        #player.bulletBody.node().getShape().setLocalScale(Vec3(1, 1, sz))
+        
+        # Get the player nodepath
+        player.bulletBody.setScale(Vec3(1, 1, sz))# * 0.3048)
+        #player.setPos(0, 0, -1 * sz)
+    
+        
     def useBasicPlayerMovement(self, dt):
         """This sets up a basic movement for the playercontroller"""
         
@@ -94,9 +118,12 @@ class BasePhysics():
         if inputState.isSet('right'): speed.setX(player.runSpeed)
         if inputState.isSet('turnLeft'):  omega =  player.turnSpeed
         if inputState.isSet('turnRight'): omega = -player.turnSpeed
+        if inputState.isSet('space'): self.doPlayerJump(player.bulletBody.node())
+        if inputState.isSet('ctrl'): self.doPlayerCrouch(player)
         
         #player.bulletBody.node().setAngularMovement(omega)
         player.bulletBody.node().setLinearMovement(speed, True)
+        
         
     def buildTriangleMesh(self, _obj, _levelEgg, _mass=0, _isDynamic=False):
         """Build a bullet TriangleMesh for objects"""
@@ -123,6 +150,14 @@ class BasePhysics():
         
         return np
         
+        
+    def doRay(self, target):
+        
+        pFrom = Point3(0, 0, 0)
+        
+        result = self.engine.bulletWorld.rayTestClosest(pFrom, target)
+        
+        return result
         
         
         

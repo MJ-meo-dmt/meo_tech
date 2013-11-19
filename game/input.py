@@ -59,6 +59,8 @@ class InputHandler():
         inputState.watchWithModifiers('right', 'd')
         inputState.watchWithModifiers('turnLeft', 'q')
         inputState.watchWithModifiers('turnRight', 'e')
+        inputState.watchWithModifiers('space', 'space')
+        #inputState.watchWithModifiers('ctrl', 'lcontrol_down')
         
         # App exit temp
         base.accept("escape", sys.exit)
@@ -68,7 +70,9 @@ class InputHandler():
         self.winYhalf = base.win.getYSize()/2
         
         base.camera.reparentTo(self.game.meotech.engine.GameObjects["player"].bulletBody)
-        base.camLens.setFov(90) 
+        base.camLens.setFov(90)
+        base.camLens.setNear(0.5)
+        
         
         self.mouseSpeedX = 5
         self.mouseSpeedY = 0.2
