@@ -43,3 +43,8 @@ import logging as log
 # BaseCamera
 class BaseCamera():
     """Hold the different cameras"""
+
+
+    pass
+
+    

@@ -40,7 +40,7 @@ import logging as log
 from pandac.PandaModules import loadPrcFileData
 loadPrcFileData("",
 """
-    window-title MeoTech
+    window-title OWP - QuickShadows
     fullscreen 0
     win-size 1024 768
     cursor-hidden 0
