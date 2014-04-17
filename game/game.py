@@ -57,6 +57,15 @@ class Game():
         
         # Add GameLoop Task
         taskMgr.add(self.gameLoop, "Game_loop")
+
+        # Check the engine if we have a player.
+        if self.meotech.engine.GameObjects["player"]:
+            if self.meotech.engine.GameObjects["player"].useBasicMovement:
+                self.hasPlayer = True
+
+        else:
+            self.hasPlayer = False
+
         
         
     def gameLoop(self, task):
@@ -64,10 +73,9 @@ class Game():
         dt = globalClock.getDt()
         # Add player movement
         # Check this if its slow change it...
-        if self.meotech.engine.GameObjects["player"]:
-            if self.meotech.engine.GameObjects["player"].useBasicMovement:
-                self.meotech.engine.factory.basePhysics.useBasicPlayerMovement(dt)
-                self.inputs.getMouse(dt)
+        if self.hasPlayer:
+            self.meotech.engine.factory.basePhysics.useBasicPlayerMovement(dt)
+            self.inputs.getMouse(dt)
         # Add Player camera handler
         
         return task.cont

@@ -42,7 +42,7 @@ loadPrcFileData("",
 """
     window-title OWP - QuickShadows
     fullscreen 0
-    win-size 1024 768
+    win-size 1200 600
     cursor-hidden 0
     show-frame-rate-meter 1
     #want-tk 1
@@ -57,6 +57,23 @@ from engine.engine import Engine
 from game.game import Game
 
 #----------------------------------------------------------------------#
+
+# Notes on [rising]
+"""
+"Soft Re-write on rising, depending on all the features... then build it into the meotech engine while furthering developing on the MeoTech
+engine itself.  Then on release we give the player the game and the "engine" (with simpler tools) so that they can mod the game.  :-) They may learn some stuff about
+
+So the idea would be to, take all the gameplay stuff from rising or something similar and then create the game using the meotech stuff and the way it connects to 
+blender... or we have to swap it around and take some of the meotech stuff and infuse that witht he current rising code... either way.. i think though that getting the
+game play and game mechanics sorted first would be simler and faster than trying to convert everything in the old code to use the blender style way or it could be easy
+lol i dono.. either way will be work so im up with whatever... id like to finish something...
+
+I think we should start making tools that we can use to create the game itself.
+
+oh and what about checking out 2 camera modes.. 3rd and 1st...
+
+"""
+
 
 # Main App
 class MeoTech(ShowBase):

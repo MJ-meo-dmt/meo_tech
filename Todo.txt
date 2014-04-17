@@ -31,3 +31,7 @@ sub tags(minor) for all objects as in things in the game.. player, boxes (and ot
 - skyBox
 - numOfAi (unsure)
 - enableAi (unsure)
+
+
+DEMO GAME:
+Having a pile of boxes to be used for getting the puzzle right. simple at first ofc. like build X

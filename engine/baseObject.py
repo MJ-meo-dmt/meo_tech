@@ -134,6 +134,8 @@ class BasePlayer():
         if self.model != "":
             # Setup the visual model
             # Animated stuff should be added soon
+            print MODEL_DIR
+            print self.model
             model = loader.loadModel(MODEL_DIR + self.model)
             model.reparentTo(self.bulletBody)
 

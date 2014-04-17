@@ -88,9 +88,10 @@ class Factory():
             self.engine.GameObjects["level"][_obj.getTag("level")] = BaseLevel(self.engine, 
                             _type, _obj, _levelEgg)
             
-        # Object Type
-        if _type == "object":
-            self.engine.GameObjects["object"][_obj.getTag("object")] = BaseObject()
+        ## Object Type
+        #if _type == "object":
+        #    self.engine.GameObjects["object"][_obj.getTag("object")] = bObject(self.engine, 
+        #                    _type, _obj, _levelEgg)
             
         # Light Type
         if _type == "light":
